@@ -16,6 +16,7 @@ html {
 body {
   margin: 0;
   background: #000;
+  font-family: sans-serif;
 
 }
 
@@ -30,14 +31,32 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
+  transform: translateX(-100vw);
 }
 
+.overlay-slide-right {
+  transition: all 0.4s ease-in-out;
+  transform: translateX(0);
+}
+
+.overlay-slide-left {
+  transition: all 0.8s ease-in-out;
+  transform: translateX(-100vw);
+}
 /*Nav Menu Items*/
 
-nav,nav ul{
+nav,
+nav ul{
   height: 100vh;
   margin: 0;
   padding: 0;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  list-style: none;
 }
 
 nav ul li {
@@ -57,11 +76,11 @@ nav li a {
 }
 
 nav li a:hover {
-  transform: scale(1.4);
+  transform: scale(1.2);
 }
 
 nav li a::before {
-  content: "";
+  content: '';
   width: 25vw;
   height: 3px;
   background-color: white;
@@ -69,19 +88,12 @@ nav li a::before {
   top: 47.5%;
   left: 0;
   opacity: 0;
+  transition: left 0.2s ease;
 }
 
 nav li a:hover::before {
   opacity: 1;
 }
-}
-nav,ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
-  list-style: none;
-}
-
 
 nav li:nth-of-type(1) {
   background-color: var(--navColor1);
@@ -99,6 +111,60 @@ nav li:nth-of-type(5) {
   background-color: var(--navColor5);      
 }
 
+/*Slide in Animation with delay for each item*/
+.slide-in-1 {
+  animation: slide-in 0.4s linear 0.2s both;
+}
+.slide-in-2 {
+  animation: slide-in 0.4s linear 0.4s both;
+}
+.slide-in-3 {
+  animation: slide-in 0.4s linear 0.6s both;
+}
+.slide-in-4 {
+  animation: slide-in 0.4s linear 0.8s both;
+}
+.slide-in-5 {
+  animation: slide-in 0.4s linear 1s both;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+/*Slide out Animation with delay for each item*/
+.slide-out-1 
+  animation: slide-out 0.3s linear 0.5s both;
+}
+.slide-out-2 
+  animation: slide-out 0.3s linear 0.4s both;
+}
+.slide-out-3 
+  animation: slide-out 0.3s linear 0.3s both;
+}
+.slide-out-4 
+  animation: slide-out 0.3s linear 0.2s both;
+}
+.slide-out-5 
+  animation: slide-out 0.3s linear 0.1s both;
+}
+
+@keyframes slide-out {
+ from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
 /* --- Menu Bars ------------------------------------ */
 
 .menu-bars {
@@ -150,7 +216,7 @@ section {
 }
 
 section#home {
-  background-image: url("https://images.unsplash.com/photo-1569081156361-c98e05e7f1e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80");
+  background-image: url("https://images.unsplash.com/photo-1671838519489-94356a51ff6b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1235&q=80");
   background-size: cover;
   background-position: center center;
 }
